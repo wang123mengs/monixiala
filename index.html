@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="css.css">
+</head>
+<body>
+	<div id='dv' class="select"></div>
+	<div id='bo' class="select"></div>
+	<button id='bbt'>设置</button>
+	<button id='btt'>获取</button>
+	<script src="jquery.min.js"></script>
+	<script src="dome.js"></script>
+	<script>
+		var obj = $("#dv").myPlugin({
+			css:{
+				'color': '#2C9929',
+				'fontSize': '18px'
+			},
+			name:"jianming",
+			column:[
+				{img:"../images/4.jpg",title:"炮身23",value:"1"},
+				{img:"../images/5.jpg",title:"炮管32",value:"2"},
+				{img:"../images/6.jpg",title:"炮弹232",value:"3"},
+			],
+			onClickd:function(){
+				console.log($(this).attr("data-val"));
+			}
+		});
+		var objs = $("#bo").myPlugin({
+			css:{
+				'color': ' rgb(241, 152, 20)',
+				'fontSize': '16px'
+			},
+			name:"jianming",
+			column:[
+				{img:"../images/1.jpg",title:"笔记本",value:"1"},
+				{img:"../images/2.jpg",title:"电话机",value:"2"},
+				{img:"../images/3.jpg",title:"调试及",value:"3"},
+			],
+			onClickd:function(){
+				console.log($(this).attr("data-val"));
+			}
+		});
+		$("#bbt").click(function(){
+			obj.setVal("2");
+			objs.setVal("2");
+		});
+		$("#btt").click(function(){
+			console.log(obj.getVal());
+			console.log(objs.getVal());
+		});
+	</script>
+</body>
+</html>
